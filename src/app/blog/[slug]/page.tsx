@@ -1,5 +1,6 @@
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import Terminal from "@/components/Terminal";
+import PostEngagement from "@/components/PostEngagement";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -337,16 +338,19 @@ export default async function BlogPostPage({ params }: PageProps) {
 
           {/* Footer */}
           <div
-            className="mt-10 pt-6 border-t flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+            className="mt-10 pt-6 border-t space-y-4"
             style={{ borderColor: "#2d3748" }}
           >
-            <div className="text-xs font-mono" style={{ color: "#4a5568" }}>
-              <span style={{ color: "#00ff41" }}>[M00NLIG7@cyberdef ~]$</span>{" "}
-              echo &quot;EOF&quot;
+            <PostEngagement slug={post.slug} title={post.title} />
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="text-xs font-mono" style={{ color: "#4a5568" }}>
+                <span style={{ color: "#00ff41" }}>[M00NLIG7@cyberdef ~]$</span>{" "}
+                echo &quot;EOF&quot;
+              </div>
+              <Link href="/blog" className="btn-terminal text-xs">
+                <span style={{ color: "#00ff41" }}>$</span> ls ../posts
+              </Link>
             </div>
-            <Link href="/blog" className="btn-terminal text-xs">
-              <span style={{ color: "#00ff41" }}>$</span> ls ../posts
-            </Link>
           </div>
         </Terminal>
       </div>
