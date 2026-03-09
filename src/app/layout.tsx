@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
+import { Analytics } from "@vercel/analytics/next";
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains",
@@ -58,6 +59,7 @@ export default function RootLayout({
       >
         <NavBar />
         <main className="min-h-screen">{children}</main>
+        <Analytics />
         <footer
           className="border-t font-mono text-xs py-6 mt-12"
           style={{
